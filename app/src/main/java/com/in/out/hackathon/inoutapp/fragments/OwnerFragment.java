@@ -273,6 +273,7 @@ public class OwnerFragment extends Fragment implements View.OnClickListener{
         Vehicle vehicle = new Vehicle();
         TwoWheeler twoWheeler = new TwoWheeler();
         FourWheeler fourWheeler = new FourWheeler();
+        bookingSpaceRequest.setUserId(1);
         bookingSpaceRequest.setBookingSpaceName(name);
         bookingSpaceRequest.setLatitude(latitude);
         bookingSpaceRequest.setLongitude(longitude);

@@ -7,10 +7,10 @@ import java.util.List;
 
 public class ConfirmBookingResponse implements Serializable {
 
-    @SerializedName("confirm_booking_list")
-    private List<ConfirmBookingData> confirmBookingDataList;
+    @SerializedName("data")
+    private List<ParkingPlaceData> parkingPlaceDataList;
 
-    public List<ConfirmBookingData> getConfirmBookingDataList() {
-        return confirmBookingDataList;
+    public List<ParkingPlaceData> getParkingPlaceDataList() {
+        return parkingPlaceDataList;
     }
 }

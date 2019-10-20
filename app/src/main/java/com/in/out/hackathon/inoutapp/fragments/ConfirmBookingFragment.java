@@ -20,6 +20,7 @@ import com.in.out.hackathon.inoutapp.models.ConfirmBookingResponse;
 import com.in.out.hackathon.inoutapp.restapi.ApiServices;
 import com.in.out.hackathon.inoutapp.restapi.AppClient;
 import com.in.out.hackathon.inoutapp.utils.NetworkUtils;
+import com.in.out.hackathon.inoutapp.utils.ProgressDialog;
 import com.in.out.hackathon.inoutapp.utils.SharedPrefs;
 
 import retrofit2.Call;
@@ -32,6 +33,7 @@ public class ConfirmBookingFragment extends Fragment {
     private ConfirmBookingAdapter adapter;
     private RecyclerView rvConfirmBooking;
     private SharedPrefs sharedPrefs;
+    private ProgressDialog progressDialog;
 
     public ConfirmBookingFragment() {
         // Required empty public constructor
@@ -54,6 +56,7 @@ public class ConfirmBookingFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_confirm_booking, container, false);
         adapter = new ConfirmBookingAdapter(getContext());
         sharedPrefs = new SharedPrefs(getContext());
+        progressDialog = new ProgressDialog();
         initialise(view);
         rvConfirmBooking.setLayoutManager(new LinearLayoutManager(getContext()));
         rvConfirmBooking.setAdapter(adapter);
@@ -66,22 +69,25 @@ public class ConfirmBookingFragment extends Fragment {
     }
 
     private void apiCall() {
+        progressDialog.showDialog("Fetching the applications...", getContext());
         ConfirmBookingRequest confirmBookingRequest = new ConfirmBookingRequest();
-        confirmBookingRequest.setUserId(sharedPrefs.getUserId());
+        confirmBookingRequest.setUserId(1);
         ApiServices apiServices = AppClient.getInstance().createService(ApiServices.class);
         Call<ConfirmBookingResponse> call = apiServices.requestConfirmBooking(confirmBookingRequest);
         call.enqueue(new Callback<ConfirmBookingResponse>() {
             @Override
             public void onResponse(Call<ConfirmBookingResponse> call, Response<ConfirmBookingResponse> response) {
+                progressDialog.hideDialog();
                 if (response.isSuccessful()) {
                     ConfirmBookingResponse confirmBookingResponse = response.body();
-
-
+                    adapter.setParkingPlaceDataList(confirmBookingResponse.getParkingPlaceDataList());
+                    adapter.notifyDataSetChanged();
                 }
             }
 
             @Override
             public void onFailure(Call<ConfirmBookingResponse> call, Throwable t) {
+                progressDialog.hideDialog();
                 if (getContext() != null) {
                     if (!NetworkUtils.isNetworkAvailable(getContext())) {
                         Toast.makeText(getContext(), "No internet connection. Please try again.", Toast.LENGTH_LONG).show();
