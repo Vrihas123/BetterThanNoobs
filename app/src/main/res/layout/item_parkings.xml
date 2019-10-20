@@ -30,6 +30,7 @@
         </androidx.cardview.widget.CardView>
 
         <RatingBar
+            android:id="@+id/ratingParking"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/cv_image"

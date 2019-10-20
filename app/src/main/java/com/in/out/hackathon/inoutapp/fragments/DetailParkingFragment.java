@@ -19,10 +19,8 @@ public class DetailParkingFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static DetailParkingFragment newInstance(String param1, String param2) {
+    public static DetailParkingFragment newInstance() {
         DetailParkingFragment fragment = new DetailParkingFragment();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
         return fragment;
     }
 
@@ -35,7 +33,8 @@ public class DetailParkingFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_detail_parking, container, false);
+        View view = inflater.inflate(R.layout.fragment_detail_parking, container, false);
+        return view;
     }
 
 

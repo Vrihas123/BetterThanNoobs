@@ -24,10 +24,8 @@ public class AvailableParkingFragment extends Fragment implements View.OnClickLi
         // Required empty public constructor
     }
 
-    public static AvailableParkingFragment newInstance(String param1, String param2) {
+    public static AvailableParkingFragment newInstance() {
         AvailableParkingFragment fragment = new AvailableParkingFragment();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
         return fragment;
     }
 
