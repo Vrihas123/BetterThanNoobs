@@ -17,6 +17,7 @@ public class SharedPrefs {
     public static final String KEY_LATITUDE = "latitude";
     public static final String KEY_LONIGTUDE = "longitude";
     public static final String KEY_NEARBY_PARKING = "nearbyParking";
+    public static final String KEY_USER_ID = "userId";
 
     private static final int KEY_VERSION=1;
     // LogCat tag
@@ -58,6 +59,16 @@ public class SharedPrefs {
 
     public void setMobile(String mobile) {
         editor.putString(KEY_MOBILE, mobile);
+        editor.commit();
+    }
+
+
+    public int getUserId() {
+        return pref.getInt(KEY_USER_ID, -1);
+    }
+
+    public void setUserId(int userId) {
+        editor.putInt(KEY_USER_ID, userId);
         editor.commit();
     }
 
