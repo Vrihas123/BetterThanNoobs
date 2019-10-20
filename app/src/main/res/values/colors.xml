@@ -3,4 +3,53 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+
+    <color name="colorGreyInactive">#989898</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBlack">#000000</color>
+
+
+    <color name="colorAccentTransparent">#20feb40d</color>
+    <color name="colorWhiteMild">#e3e2e2</color>
+    <color name="colorBlackLow">#282828</color>
+    <color name="colorWhiteLow">#cacaca</color>
+    <color name="colorPrimaryLow">#ff9696</color>
+    <color name="colorGoldenYellow">#feb40d</color>
+    <color name="colorGreyLow">#e5e5e5</color>
+    <color name="colorGreyDim">#acacac</color>
+    <color name="colorPurpleOpacityLow">#45a034c5</color>
+    <color name="colorPrimaryWpl">#7f0baa</color>
+    <color name="colorPrimaryBright">#a034c5</color>
+    <color name="colorWplPrimaryTransparent">#80a034c5</color>
+    <color name="colorPurpleDim">#eaaffe</color>
+    <color name="colorGreenDim">#0cda91</color>
+    <color name="colorGreenHigh">#0a173d</color>
+    <color name="colorDarkBlue">#0c0e4f</color>
+    <color name="colorOrangeDim">#ff9954</color>
+    <color name="colorOrange">#f5822e</color>
+    <color name="colorOrangeBright">#f99b23</color>
+    <color name="colorOrangeHigh">#f36d21</color>
+    <color name="colorSkyBlueDim">#1ac7e1</color>
+    <color name="colorSkyBlueHigh">#06656e</color>
+    <color name="colorVioletDim">#8215a1</color>
+    <color name="colorVioletHigh">#030850</color>
+    <color name="colorMaroon">#5070150f</color>
+    <color name="colorPinkHigh">#e4165a</color>
+    <color name="colorPink">#e20d5e</color>
+    <color name="colorMagenta">#e3135b</color>
+    <color name="colorSilverDim">#7f7f7f</color>
+    <color name="colorSilverHigh">#767676</color>
+    <color name="colorGreen">#43A047</color>
+    <color name="colorPurpleTransparent">#f9eaff</color>
+    <color name="colorPurpleHigh">#8824ab</color>
+    <color name="colorBlueLink">#0645AD</color>
+    <color name="colorGreyBlue">#cddaff</color>
+
+    <color name="colorLeaderboardBg">#da4946</color>
+    <color name="colorLeaderboardTextTitle">#96312e</color>
+    <color name="colorLeaderboardTextItem">#8f8f8f</color>
+    <color name="colorDimBlueCover">#999999</color>
+    <color name="colorPlayerCardBg">#ffe5b2</color>
+
 </resources>
