@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -12,13 +13,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.google.gson.Gson;
 import com.in.out.hackathon.inoutapp.R;
+import com.in.out.hackathon.inoutapp.adapter.AvailableParkingAdapter;
+import com.in.out.hackathon.inoutapp.models.NearbyParkingResponse;
+import com.in.out.hackathon.inoutapp.utils.SharedPrefs;
 
 
 public class AvailableParkingFragment extends Fragment implements View.OnClickListener{
 
     private ImageView ivNavigateBack;
     private RecyclerView rvAvailableParking;
+    private AvailableParkingAdapter availableParkingAdapter;
+    private SharedPrefs sharedPrefs;
+    private Gson gson;
 
     public AvailableParkingFragment() {
         // Required empty public constructor
@@ -40,6 +48,13 @@ public class AvailableParkingFragment extends Fragment implements View.OnClickLi
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_available_parking, container, false);
         initView(view);
+        Gson gson = new Gson();
+        sharedPrefs = new SharedPrefs(getContext());
+        availableParkingAdapter = new AvailableParkingAdapter(getContext());
+        rvAvailableParking.setLayoutManager(new LinearLayoutManager(getContext()));
+        rvAvailableParking.setAdapter(availableParkingAdapter);
+        availableParkingAdapter.setParkingPlaceDataList(gson.fromJson(sharedPrefs.getNearbyParking(), NearbyParkingResponse.class).getParkingPlaceDataList());
+        availableParkingAdapter.notifyDataSetChanged();
         return view;
     }
 

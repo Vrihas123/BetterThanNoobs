@@ -68,14 +68,15 @@
                     android:id="@+id/tv_charges_heading"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/TextViewPrimary"
+                    style="@style/TextViewCountryCode"
                     android:text="Total Charges"/>
 
                 <TextView
+                    android:id="@+id/tv_charges"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tv_charges_heading"
-                    style="@style/TextViewPrimaryRegular"
+                    style="@style/TextViewSecondaryFields"
                     android:text="\u20B9 4506"/>
 
             </RelativeLayout>
@@ -105,42 +106,42 @@
                     android:id="@+id/tv_vehicles"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/TextViewPrimary"
+                    style="@style/TextViewCountryCode"
                     android:text="Your Parks"/>
 
                 <ImageView
                     android:id="@+id/iv_bike"
-                    android:layout_width="@dimen/margin_32"
-                    android:layout_height="@dimen/margin_32"
-                    android:layout_marginTop="@dimen/margin_4"
+                    android:layout_width="@dimen/margin_24"
+                    android:layout_height="@dimen/margin_24"
                     android:src="@drawable/ic_directions_bike_black_24dp"
                     android:layout_below="@+id/tv_vehicles"/>
 
                 <TextView
+                    android:id="@+id/tv_bike_availability"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tv_vehicles"
                     android:layout_toRightOf="@+id/iv_bike"
                     android:layout_marginStart="@dimen/margin_8"
-                    style="@style/TextViewPrimaryRegular"
+                    style="@style/TextViewSecondaryFields"
                     android:text="2"/>
 
                 <ImageView
                     android:id="@+id/iv_car"
-                    android:layout_width="@dimen/margin_32"
-                    android:layout_height="@dimen/margin_32"
-                    android:layout_marginTop="@dimen/margin_4"
+                    android:layout_width="@dimen/margin_24"
+                    android:layout_height="@dimen/margin_24"
                     android:src="@drawable/ic_directions_car_black_24dp"
                     android:layout_centerInParent="true"
                     android:layout_below="@+id/tv_vehicles"/>
 
                 <TextView
+                    android:id="@+id/tv_car_availability"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tv_vehicles"
                     android:layout_toRightOf="@+id/iv_car"
                     android:layout_marginStart="@dimen/margin_8"
-                    style="@style/TextViewPrimaryRegular"
+                    style="@style/TextViewSecondaryFields"
                     android:text="2"/>
 
             </RelativeLayout>
@@ -170,14 +171,15 @@
                     android:id="@+id/tv_desc_heading"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/TextViewPrimary"
+                    style="@style/TextViewCountryCode"
                     android:text="Description"/>
 
                 <TextView
+                    android:id="@+id/tv_description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tv_desc_heading"
-                    style="@style/TextViewPrimaryRegular"
+                    style="@style/TextViewSecondaryFields"
                     android:textSize="@dimen/text_16"
                     android:text="Right in the centre of the heart
 Very near to the City centre
@@ -194,14 +196,15 @@ Very near to the City centre"/>
             android:id="@+id/btn_call"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minWidth="160dp"
-            android:background="@color/colorPrimaryDark"
             android:layout_below="@+id/cv_description"
             android:layout_marginStart="@dimen/margin_16"
-            android:layout_marginTop="@dimen/margin_16"
-            android:textColor="@color/colorWhite"
+            android:layout_marginTop="17dp"
+            android:background="@color/colorPrimaryDark"
             android:fontFamily="@font/avenir_black"
-            android:text="Call"/>
+            android:minWidth="160dp"
+            android:clickable="true"
+            android:text="Call"
+            android:textColor="@color/colorWhite" />
 
         <Button
             android:id="@+id/btn_directions"
@@ -214,11 +217,13 @@ Very near to the City centre"/>
             android:layout_marginStart="@dimen/margin_16"
             android:layout_marginEnd="@dimen/margin_16"
             android:layout_marginTop="@dimen/margin_16"
+            android:clickable="true"
             android:textColor="@color/colorWhite"
             android:fontFamily="@font/avenir_black"
             android:text="Get Directions"/>
 
         <Button
+            android:id="@+id/btn_book"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimaryDark"
@@ -229,6 +234,7 @@ Very near to the City centre"/>
             android:layout_marginBottom="@dimen/margin_16"
             android:fontFamily="@font/avenir_black"
             android:textColor="@color/colorWhite"
+            android:clickable="true"
             android:text="Book"/>
 
     </RelativeLayout>

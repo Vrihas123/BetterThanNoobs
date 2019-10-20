@@ -17,6 +17,9 @@ public class SharedPrefs {
     public static final String KEY_LATITUDE = "latitude";
     public static final String KEY_LONIGTUDE = "longitude";
     public static final String KEY_NEARBY_PARKING = "nearbyParking";
+    public static final String KEY_SELECTED_PARKING="selectedParking";
+    public static final String KEY_REQUIRED_BIKE="requiredBike";
+    public static final String KEY_REQUIRED_CAR="requiredCar";
 
     private static final int KEY_VERSION=1;
     // LogCat tag
@@ -89,4 +92,29 @@ public class SharedPrefs {
         editor.putString(KEY_NEARBY_PARKING, jsonFormat);
         editor.commit();
     }
+
+    public String getSelectedParking(){
+        return pref.getString(KEY_SELECTED_PARKING, "default");
+    }
+    public void setSelectedParking(String jsonFormat) {
+        editor.putString(KEY_SELECTED_PARKING, jsonFormat);
+        editor.commit();
+    }
+
+    public Integer getRequiredCar(){
+        return pref.getInt(KEY_REQUIRED_CAR, 0);
+    }
+    public void setRequiredCar(Integer requiredCar) {
+        editor.putInt(KEY_REQUIRED_CAR, requiredCar);
+        editor.commit();
+    }
+
+    public Integer getRequiredBike(){
+        return pref.getInt(KEY_REQUIRED_BIKE, 0);
+    }
+    public void setRequiredBike(Integer requiredBike) {
+        editor.putInt(KEY_REQUIRED_BIKE, requiredBike);
+        editor.commit();
+    }
+
 }

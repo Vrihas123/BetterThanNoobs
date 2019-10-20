@@ -13,12 +13,13 @@ import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.in.out.hackathon.inoutapp.R;
+import com.in.out.hackathon.inoutapp.fragments.OwnerFragment;
 import com.in.out.hackathon.inoutapp.fragments.ParkingPlaceFragment;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private Toolbar toolbarHome;
+//    private Toolbar toolbarHome;
     private BottomNavigationView bottomNavigationView;
 
     private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -26,10 +27,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
             switch (menuItem.getItemId()) {
                 case R.id.item_1:
-                    ParkingPlaceFragment parkingPlaceFragment = ParkingPlaceFragment.newInstance();
-                    createFragment(parkingPlaceFragment, "ParkingPlaceFragment", false);
+                    OwnerFragment ownerFragment = OwnerFragment.newInstance();
+                    createFragment(ownerFragment, "OwnerFragment", false);
                     break;
                 case R.id.item_2:
+                    ParkingPlaceFragment parkingPlaceFragment = ParkingPlaceFragment.newInstance();
+                    createFragment(parkingPlaceFragment, "ParkingPlaceFragment", false);
                     break;
                 case R.id.item_3:
                     break;
@@ -53,11 +56,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     private void initializeView() {
-        toolbarHome = findViewById(R.id.toolbar_home);
+//        toolbarHome = findViewById(R.id.toolbar_home);
         bottomNavigationView = findViewById(R.id.bottom_nav_home);
-        setSupportActionBar(toolbarHome);
-        getSupportActionBar().setTitle("ParkUp");
-        toolbarHome.setTitleTextColor(getResources().getColor(R.color.colorWhite));
+//        setSupportActionBar(toolbarHome);
+//        getSupportActionBar().setTitle("ParkUp");
+//        toolbarHome.setTitleTextColor(getResources().getColor(R.color.colorWhite));
     }
 
 

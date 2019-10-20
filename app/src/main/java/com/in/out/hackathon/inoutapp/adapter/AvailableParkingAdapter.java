@@ -23,25 +23,32 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.gson.Gson;
 import com.in.out.hackathon.inoutapp.R;
 import com.in.out.hackathon.inoutapp.activities.MainActivity;
 import com.in.out.hackathon.inoutapp.fragments.DetailParkingFragment;
 import com.in.out.hackathon.inoutapp.models.ParkingPlaceData;
+import com.in.out.hackathon.inoutapp.utils.SharedPrefs;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Random;
 
 public class AvailableParkingAdapter extends RecyclerView.Adapter<AvailableParkingAdapter.ViewHolder> {
 
     private Context context;
     private LayoutInflater layoutInflater;
     private List<ParkingPlaceData> parkingPlaceDataList = new ArrayList<>();
+    private Gson gson;
+    private SharedPrefs sharedPrefs;
 
     public AvailableParkingAdapter(Context context) {
         this.context = context;
         layoutInflater = LayoutInflater.from(context);
+        gson = new Gson();
+        sharedPrefs = new SharedPrefs(context);
     }
 
     public void setParkingPlaceDataList(List<ParkingPlaceData> parkingPlaceDataList) {
@@ -58,17 +65,52 @@ public class AvailableParkingAdapter extends RecyclerView.Adapter<AvailableParki
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final ParkingPlaceData data = parkingPlaceDataList.get(position);
+        int countBike = 0;
+        int countCar = 0;
+        Float chargeCar = 0.0f;
+        Float chargeBike = 0.0f;
         holder.tvName.setText(data.getName());
-//        holder.tvCharges.setText(data.getCharges());
-//        holder.ratingBar.setRating();
+        holder.ratingBar.setRating(getRandom());
 //        Glide.with(context).load().into(holder.ivParkingSpace);
-//        holder.tvLocation.setText(getAddress());
+        for(int i=0;i<parkingPlaceDataList.size();i++){
+            if(i!=position){
+                if(data.getLocation().getId().equals(parkingPlaceDataList.get(i).getLocation().getId())){
+                    if(data.getVehicle().getType().equals("TWO")){
+                        countBike = data.getVehicle().getQuantity();
+                        countCar = parkingPlaceDataList.get(i).getVehicle().getQuantity();
+                        chargeCar = parkingPlaceDataList.get(i).getVehicle().getCharge();
+                        chargeBike = data.getVehicle().getCharge();
+                    }
+                    else{
+                        countBike = parkingPlaceDataList.get(i).getVehicle().getQuantity();
+                        countCar = data.getVehicle().getQuantity();
+                        chargeCar = data.getVehicle().getCharge();
+                        chargeBike = parkingPlaceDataList.get(i).getVehicle().getCharge();
+                    }
+                }
+
+            }
+        }
+        data.setBikeAvailable(countBike);
+        data.setCarAvailable(countCar);
+        data.setBikeCharge(chargeBike);
+        data.setCarCharge(chargeCar);
+        holder.tvChargesBike.setText("\u20B9"+ " " + Float.toString(chargeBike));
+        holder.tvChargesCar.setText("\u20B9 " + Float.toString(chargeCar));
+        holder.tvBikeAvailable.setText(Integer.toString(countBike));
+        holder.tvCarAvailable.setText(Integer.toString(countCar));
+
+        try {
+            holder.tvLocation.setText(getAddress(data.getLocation().getLat(), data.getLocation().getLon()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         holder.btnCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
                     Intent callIntent = new Intent(Intent.ACTION_CALL);
-//                    callIntent.setData(Uri.parse("tel:" + data.getPhoneNumber()));
+                    callIntent.setData(Uri.parse("tel:" + "+91-8963833132"));
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                         if (context.checkSelfPermission(Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                             // TODO: Consider calling
@@ -90,10 +132,13 @@ public class AvailableParkingAdapter extends RecyclerView.Adapter<AvailableParki
         holder.cvParent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                sharedPrefs.setSelectedParking(gson.toJson(data));
                 DetailParkingFragment detailParkingFragment = DetailParkingFragment.newInstance();
                 ((MainActivity)context).createFragment(detailParkingFragment, "Detail Parking fragment", false);
             }
         });
+
+
     }
 
     @Override
@@ -101,7 +146,7 @@ public class AvailableParkingAdapter extends RecyclerView.Adapter<AvailableParki
         return parkingPlaceDataList.size();
     }
 
-    private String getAddress(Double lat, Double lon) throws IOException {
+    private String getAddress(Float lat, Float lon) throws IOException {
         Geocoder geocoder;
         List<Address> addresses;
         geocoder = new Geocoder(context, Locale.getDefault());
@@ -110,9 +155,18 @@ public class AvailableParkingAdapter extends RecyclerView.Adapter<AvailableParki
         return addresses.get(0).getAddressLine(0);
     }
 
+    private Integer getRandom(){
+        Random random = new Random();
+        int rand = 0;
+        while (true){
+            rand = random.nextInt(11);
+            if(rand !=0) break;
+        }
+        return rand;
+    }
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView tvName, tvLocation, tvCharges;
+        public TextView tvName, tvLocation, tvChargesBike, tvChargesCar, tvBikeAvailable, tvCarAvailable;
         public CardView cvParent;
         public ImageView ivParkingSpace;
         public Button btnCall;
@@ -121,8 +175,11 @@ public class AvailableParkingAdapter extends RecyclerView.Adapter<AvailableParki
         public ViewHolder(View itemView) {
             super(itemView);
             tvName = itemView.findViewById(R.id.tv_parking_name);
-            tvCharges = itemView.findViewById(R.id.tv_charges);
+            tvChargesBike = itemView.findViewById(R.id.tv_charges_bike);
+            tvChargesCar = itemView.findViewById(R.id.tv_charges_car);
             tvLocation = itemView.findViewById(R.id.tv_location);
+            tvBikeAvailable = itemView.findViewById(R.id.tv_bike_availability);
+            tvCarAvailable = itemView.findViewById(R.id.tv_car_availability);
             cvParent = itemView.findViewById(R.id.cv_parent);
             ivParkingSpace = itemView.findViewById(R.id.iv_parking);
             btnCall = itemView.findViewById(R.id.btn_call);

@@ -6,6 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginStart="@dimen/margin_16"
     android:layout_marginEnd="@dimen/margin_16"
+    android:layout_marginBottom="@dimen/margin_16"
     app:cardElevation="@dimen/margin_8"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
@@ -70,29 +71,84 @@
             style="@style/TextViewTertiary"/>
 
         <Button
+            android:id="@+id/btn_call"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimaryDark"
             android:textColor="@color/colorWhite"
-            android:text="Book"
+            android:text="Call"
             android:minHeight="32dp"
             android:minWidth="80dp"
             android:layout_alignParentEnd="true"
             android:layout_below="@+id/tv_location"
-            android:layout_marginTop="@dimen/margin_8"
+            android:layout_marginTop="@dimen/margin_24"
+            android:layout_marginBottom="@dimen/margin_16"
             android:layout_marginRight="@dimen/margin_16"/>
 
-        <TextView
-            android:id="@+id/tv_charges"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/TextViewPrimary"
-            android:text="\u20B9 4506"
-            android:textColor="@color/colorPrimaryDark"
+        <ImageView
+            android:id="@+id/iv_bike"
+            android:layout_width="@dimen/margin_24"
+            android:layout_height="@dimen/margin_24"
             android:layout_toRightOf="@id/cv_image"
             android:layout_below="@+id/tv_location"
             android:layout_marginTop="@dimen/margin_4"
+            android:layout_marginStart="@dimen/margin_4"
+            android:src="@drawable/ic_directions_bike_black_24dp"/>
+
+        <TextView
+            android:id="@+id/tv_charges_bike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextViewSecondaryFields"
+            android:text="\u20B9 4506"
+            android:textColor="@color/colorAccent"
+            android:layout_toRightOf="@id/iv_bike"
+            android:layout_below="@+id/tv_location"
+            android:layout_marginTop="@dimen/margin_4"
             android:layout_marginStart="@dimen/margin_4"/>
+
+        <ImageView
+            android:id="@+id/iv_car"
+            android:layout_width="@dimen/margin_24"
+            android:layout_height="@dimen/margin_24"
+            android:layout_toRightOf="@id/tv_charges_bike"
+            android:layout_below="@+id/tv_location"
+            android:layout_marginTop="@dimen/margin_4"
+            android:layout_marginStart="@dimen/margin_8"
+            android:src="@drawable/ic_directions_car_black_24dp"/>
+
+        <TextView
+            android:id="@+id/tv_charges_car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextViewSecondaryFields"
+            android:text="\u20B9 4506"
+            android:textColor="@color/colorAccent"
+            android:layout_toRightOf="@id/iv_car"
+            android:layout_below="@+id/tv_location"
+            android:layout_marginTop="@dimen/margin_4"
+            android:layout_marginStart="@dimen/margin_4"/>
+
+        <TextView
+            android:id="@+id/tv_bike_availability"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_bike"
+            android:layout_alignStart="@id/iv_bike"
+            android:layout_marginStart="@dimen/margin_6"
+            style="@style/TextViewSecondaryFields"
+            android:text="2"/>
+
+        <TextView
+            android:id="@+id/tv_car_availability"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_car"
+            android:layout_alignStart="@id/iv_car"
+            android:layout_marginStart="@dimen/margin_6"
+            style="@style/TextViewSecondaryFields"
+            android:text="3"/>
+
 
     </RelativeLayout>
 
