@@ -65,6 +65,7 @@ public class AvailableParkingAdapter extends RecyclerView.Adapter<AvailableParki
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final ParkingPlaceData data = parkingPlaceDataList.get(position);
+//        Log.e("====", data.toString());
         int countBike = 0;
         int countCar = 0;
         Float chargeCar = 0.0f;
@@ -91,12 +92,13 @@ public class AvailableParkingAdapter extends RecyclerView.Adapter<AvailableParki
 
             }
         }
+        Log.e("====", countBike+" "+countCar+" "+chargeBike+" "+chargeBike+" ");
         data.setBikeAvailable(countBike);
         data.setCarAvailable(countCar);
         data.setBikeCharge(chargeBike);
         data.setCarCharge(chargeCar);
-        holder.tvChargesBike.setText("\u20B9"+ " " + Float.toString(chargeBike));
-        holder.tvChargesCar.setText("\u20B9 " + Float.toString(chargeCar));
+        holder.tvChargesBike.setText("\u20B9"+ " " + (chargeBike));
+        holder.tvChargesCar.setText("\u20B9 " + (chargeCar));
         holder.tvBikeAvailable.setText(Integer.toString(countBike));
         holder.tvCarAvailable.setText(Integer.toString(countCar));
 
@@ -143,6 +145,7 @@ public class AvailableParkingAdapter extends RecyclerView.Adapter<AvailableParki
 
     @Override
     public int getItemCount() {
+//        Log.e("======", parkingPlaceDataList.size()+"");
         return parkingPlaceDataList.size();
     }
 

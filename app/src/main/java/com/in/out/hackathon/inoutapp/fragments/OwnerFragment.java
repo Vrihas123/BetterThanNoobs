@@ -35,6 +35,7 @@ import com.google.android.libraries.places.api.net.PlacesClient;
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.gson.Gson;
 import com.in.out.hackathon.inoutapp.R;
 import com.in.out.hackathon.inoutapp.models.BookingSpaceRequest;
 import com.in.out.hackathon.inoutapp.models.BookingSpaceResponse;
@@ -47,9 +48,13 @@ import com.in.out.hackathon.inoutapp.utils.NetworkUtils;
 import com.in.out.hackathon.inoutapp.utils.ProgressDialog;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.util.Arrays;
 import java.util.Calendar;
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -69,6 +74,9 @@ public class OwnerFragment extends Fragment implements View.OnClickListener{
     private Button btnPic, btnCreateBookingSpace;
     private static int RESULT_LOAD_IMAGE = 1;
     private String imageString;
+    private Uri selectedImage;
+    private String picturePath;
+    private Gson gson = new Gson();
 
     public OwnerFragment() {
         // Required empty public constructor
@@ -232,7 +240,7 @@ public class OwnerFragment extends Fragment implements View.OnClickListener{
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && null != data) {
-            Uri selectedImage = data.getData();
+            selectedImage = data.getData();
             String[] filePathColumn = { MediaStore.Images.Media.DATA };
 
             Cursor cursor = getContext().getContentResolver().query(selectedImage,
@@ -240,7 +248,7 @@ public class OwnerFragment extends Fragment implements View.OnClickListener{
             cursor.moveToFirst();
 
             int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-            String picturePath = cursor.getString(columnIndex);
+            picturePath = cursor.getString(columnIndex);
             cursor.close();
 
             ivPic.setImageBitmap(BitmapFactory.decodeFile(picturePath));
@@ -276,7 +284,7 @@ public class OwnerFragment extends Fragment implements View.OnClickListener{
         bookingSpaceRequest.setBookingSpaceName(name);
         bookingSpaceRequest.setLatitude(latitude);
         bookingSpaceRequest.setLongitude(longitude);
-        bookingSpaceRequest.setImage(imageString);
+//        bookingSpaceRequest.setImage(imageString);
         bookingSpaceRequest.setFromTime("2019-10-19T18:35:53.741990");
         bookingSpaceRequest.setToTime("2019-10-19T18:43:04.036060");
         twoWheeler.setCharge(Float.parseFloat(c2));
@@ -288,7 +296,25 @@ public class OwnerFragment extends Fragment implements View.OnClickListener{
         bookingSpaceRequest.setVehicle(vehicle);
 
         ApiServices apiServices = AppClient.getInstance().createService(ApiServices.class);
-        Call<BookingSpaceResponse> call = apiServices.requestBookingSpace(bookingSpaceRequest);
+
+
+        // create RequestBody instance from file
+        RequestBody requestFile =
+                RequestBody.create(
+                        MediaType.parse(getContext().getContentResolver().getType(selectedImage)),
+                        new File(picturePath)
+                );
+
+        // MultipartBody.Part is used to send also the actual file name
+        MultipartBody.Part body =
+                MultipartBody.Part.createFormData("picture", new File(picturePath).getName(), requestFile);
+
+        // add another part within the multipart request
+        String desc = gson.toJson(bookingSpaceRequest);
+        RequestBody description =
+                RequestBody.create(okhttp3.MultipartBody.FORM, desc);
+
+        Call<BookingSpaceResponse> call = apiServices.requestBookingSpace(description, body);
         call.enqueue(new Callback<BookingSpaceResponse>() {
             @Override
             public void onResponse(Call<BookingSpaceResponse> call, Response<BookingSpaceResponse> response) {

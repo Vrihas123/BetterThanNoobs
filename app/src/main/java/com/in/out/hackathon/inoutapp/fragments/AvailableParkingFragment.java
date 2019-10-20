@@ -53,6 +53,7 @@ public class AvailableParkingFragment extends Fragment implements View.OnClickLi
         availableParkingAdapter = new AvailableParkingAdapter(getContext());
         rvAvailableParking.setLayoutManager(new LinearLayoutManager(getContext()));
         rvAvailableParking.setAdapter(availableParkingAdapter);
+        System.out.println("------"+gson.fromJson(sharedPrefs.getNearbyParking(), NearbyParkingResponse.class).getParkingPlaceDataList().size());
         availableParkingAdapter.setParkingPlaceDataList(gson.fromJson(sharedPrefs.getNearbyParking(), NearbyParkingResponse.class).getParkingPlaceDataList());
         availableParkingAdapter.notifyDataSetChanged();
         return view;

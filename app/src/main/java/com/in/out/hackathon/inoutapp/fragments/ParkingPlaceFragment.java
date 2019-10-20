@@ -243,9 +243,11 @@ public class ParkingPlaceFragment extends Fragment implements View.OnClickListen
             public void onResponse(Call<NearbyParkingResponse> call, Response<NearbyParkingResponse> response) {
                 progressDialog.hideDialog();
                 if (response.isSuccessful()) {
-                    Log.i("res", " " + response.body().getParkingPlaceDataList().get(0));
+//                    Log.i("res", " " + response.body().getParkingPlaceDataList().get(0));
 
-                    sharedPrefs.setNearbyParking(gson.toJson(response.body(), NearbyParkingResponse.class));
+                    sharedPrefs.setNearbyParking(gson.toJson(response.body()));
+                    System.out.println("xxxxxxx"+sharedPrefs.getNearbyParking());
+                    System.out.println("yyyyyyy"+gson.toJson(response.body()));
                     AvailableParkingFragment availableParkingFragment = AvailableParkingFragment.newInstance();
                     ((MainActivity)getContext()).createFragment(availableParkingFragment, "Available Parking Fragment", true);
                 }
