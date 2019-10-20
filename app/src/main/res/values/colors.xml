@@ -20,5 +20,8 @@
 
     <color name="colorBitterSweet">#ff5f5f</color>
     <color name="colorCaribbeanGreen">#06dfa0</color>
+    <color name="colorBlackLow">#282828</color>
+    <color name="colorGreyInactive">#989898</color>
+
 
 </resources>
