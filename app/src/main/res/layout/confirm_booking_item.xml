@@ -1,17 +1,193 @@
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    android:id="@+id/cv_parent"
+    android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginTop="@dimen/margin_4"
-    android:layout_marginBottom="@dimen/margin_4"
-    android:layout_marginStart="8dp"
-    android:layout_marginEnd="8dp"
-    app:cardElevation="8dp"
-    app:cardCornerRadius="8dp">
+    android:layout_marginStart="@dimen/margin_16"
+    android:layout_marginEnd="@dimen/margin_16"
+    android:layout_marginBottom="@dimen/margin_16"
+    app:cardElevation="@dimen/margin_8"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_image"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:cardCornerRadius="@dimen/margin_4"
+            android:layout_margin="@dimen/margin_8">
+
+            <ImageView
+                android:id="@+id/iv_parking_pic"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/parking"
+                android:scaleType="fitXY"/>
+
+        </androidx.cardview.widget.CardView>
+
+<!--        <RatingBar-->
+<!--            android:id="@+id/ratingParking"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/cv_image"-->
+<!--            android:layout_alignStart="@+id/cv_image"-->
+<!--            android:layout_alignEnd="@+id/cv_image"-->
+<!--            android:layout_marginBottom="@dimen/margin_8"-->
+<!--            style="?android:attr/ratingBarStyleSmall"-->
+<!--            android:rating="4"/>-->
+
+        <TextView
+            android:id="@+id/tv_parking_confirm_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/cv_image"
+            android:layout_marginTop="@dimen/margin_8"
+            android:layout_marginStart="8dp"
+            android:text="Pathuk's Parking Centre"
+            style="@style/TextViewSecondary"/>
+
+<!--        <ImageView-->
+<!--            android:id="@+id/iv_location"-->
+<!--            android:layout_width="@dimen/margin_18"-->
+<!--            android:layout_height="@dimen/margin_18"-->
+<!--            android:layout_marginTop="@dimen/margin_10"-->
+<!--            android:layout_toRightOf="@+id/cv_image"-->
+<!--            android:layout_below="@+id/tv_parking_name"-->
+<!--            android:src="@drawable/ic_place_black_24dp"/>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_location"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_toRightOf="@+id/iv_location"-->
+<!--            android:layout_below="@+id/tv_parking_name"-->
+<!--            android:layout_marginTop="@dimen/margin_8"-->
+<!--            android:layout_marginStart="@dimen/margin_8"-->
+<!--            android:text="33-Parmananda Nagar"-->
+<!--            style="@style/TextViewTertiary"/>-->
+
+<!--        <Button-->
+<!--            android:id="@+id/btn_call"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@color/colorPrimaryDark"-->
+<!--            android:textColor="@color/colorWhite"-->
+<!--            android:text="Call"-->
+<!--            android:minHeight="32dp"-->
+<!--            android:minWidth="80dp"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_below="@+id/tv_parking_name"-->
+<!--            android:layout_marginTop="@dimen/margin_24"-->
+<!--            android:layout_marginBottom="@dimen/margin_16"-->
+<!--            android:layout_marginRight="@dimen/margin_16"/>-->
+
+        <ImageView
+            android:id="@+id/iv_bike_confirm"
+            android:layout_width="@dimen/margin_24"
+            android:layout_height="@dimen/margin_24"
+            android:layout_toRightOf="@id/cv_image"
+            android:layout_below="@+id/tv_parking_confirm_name"
+            android:layout_marginTop="@dimen/margin_4"
+            android:layout_marginStart="@dimen/margin_8"
+            android:src="@drawable/ic_directions_bike_black_24dp"/>
+
+        <TextView
+            android:id="@+id/tv_charges_bike_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextViewSecondaryFields"
+            android:text="\u20B9 4506"
+            android:textColor="@color/colorAccent"
+            android:layout_toRightOf="@id/iv_bike_confirm"
+            android:layout_below="@+id/tv_parking_confirm_name"
+            android:layout_marginTop="@dimen/margin_4"
+            android:layout_marginStart="@dimen/margin_8"/>
+
+        <ImageView
+            android:id="@+id/iv_car_confirm"
+            android:layout_width="@dimen/margin_24"
+            android:layout_height="@dimen/margin_24"
+            android:layout_toRightOf="@id/tv_charges_bike_confirm"
+            android:layout_below="@+id/tv_parking_confirm_name"
+            android:layout_marginTop="@dimen/margin_4"
+            android:layout_marginStart="@dimen/margin_8"
+            android:src="@drawable/ic_directions_car_black_24dp"/>
+
+        <TextView
+            android:id="@+id/tv_charges_car_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextViewSecondaryFields"
+            android:text="\u20B9 4506"
+            android:textColor="@color/colorAccent"
+            android:layout_toRightOf="@id/iv_car_confirm"
+            android:layout_below="@+id/tv_parking_confirm_name"
+            android:layout_marginTop="@dimen/margin_4"
+            android:layout_marginStart="@dimen/margin_8"/>
+
+        <TextView
+            android:id="@+id/tv_bike_availability_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_bike_confirm"
+            android:layout_alignStart="@id/iv_bike_confirm"
+            android:layout_marginStart="@dimen/margin_8"
+            style="@style/TextViewSecondaryFields"
+            android:text="2"/>
+
+        <TextView
+            android:id="@+id/tv_car_availability_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_car_confirm"
+            android:layout_alignStart="@id/iv_car_confirm"
+            android:layout_marginStart="@dimen/margin_8"
+            style="@style/TextViewSecondaryFields"
+            android:text="3"/>
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cv_image"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/btn_accept"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:text="ACCEPT"
+                android:padding="4dp"
+                android:background="@color/colorGreyLow"
+                android:fontFamily="@font/avenir_black"
+                android:textColor="@color/colorBlackLow"
+                android:textAlignment="center"
+                android:layout_marginEnd="2dp"/>
+
+            <Button
+                android:id="@+id/btn_deny"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:text="DENY"
+                android:padding="4dp"
+                android:layout_marginStart="2dp"
+                android:fontFamily="@font/avenir_black"
+                android:background="@color/colorGreyLow"
+                android:textColor="@color/colorBlackLow"
+                android:textAlignment="center"/>
 
 
+        </LinearLayout>
+
+
+    </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

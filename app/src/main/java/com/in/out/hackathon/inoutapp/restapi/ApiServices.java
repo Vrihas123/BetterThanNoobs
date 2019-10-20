@@ -5,6 +5,8 @@ import com.in.out.hackathon.inoutapp.models.BookingSpaceRequest;
 import com.in.out.hackathon.inoutapp.models.BookingSpaceResponse;
 import com.in.out.hackathon.inoutapp.models.ConfirmBookingRequest;
 import com.in.out.hackathon.inoutapp.models.ConfirmBookingResponse;
+import com.in.out.hackathon.inoutapp.models.ConfirmationRequest;
+import com.in.out.hackathon.inoutapp.models.ConfirmationResponse;
 import com.in.out.hackathon.inoutapp.models.NearbyParkingRequest;
 import com.in.out.hackathon.inoutapp.models.NearbyParkingResponse;
 import com.in.out.hackathon.inoutapp.utils.AppConstants;
@@ -30,5 +32,11 @@ public interface ApiServices {
 
     @POST(AppConstants.REQUEST_CONFIRM_BOOKING)
     Call<ConfirmBookingResponse> requestConfirmBooking(@Body ConfirmBookingRequest confirmBookingRequest);
+
+    @POST(AppConstants.REQUEST_ACCEPT)
+    Call<ConfirmationResponse> requestAccept(@Body ConfirmationRequest confirmationRequest);
+
+    @POST(AppConstants.REQUEST_DENY)
+    Call<ConfirmationResponse> requestDeny(@Body ConfirmationRequest confirmationRequest);
 
 }

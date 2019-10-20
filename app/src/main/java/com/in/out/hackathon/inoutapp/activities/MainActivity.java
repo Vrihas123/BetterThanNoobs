@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.in.out.hackathon.inoutapp.R;
+import com.in.out.hackathon.inoutapp.fragments.ConfirmBookingFragment;
 import com.in.out.hackathon.inoutapp.fragments.OwnerFragment;
 import com.in.out.hackathon.inoutapp.fragments.ParkingPlaceFragment;
 
@@ -35,6 +36,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     createFragment(parkingPlaceFragment, "ParkingPlaceFragment", false);
                     break;
                 case R.id.item_3:
+                    ConfirmBookingFragment confirmBookingFragment = ConfirmBookingFragment.newInstance();
+                    createFragment(confirmBookingFragment, "ConfirmBookingFragment", false);
                     break;
             }
             return true;

@@ -6,6 +6,9 @@ import java.io.Serializable;
 
 public class BookingSpaceRequest implements Serializable {
 
+    @SerializedName("user_id")
+    private int userId;
+
     @SerializedName("name")
     private String bookingSpaceName;
 
@@ -53,5 +56,9 @@ public class BookingSpaceRequest implements Serializable {
 
     public void setVehicle(Vehicle vehicle) {
         this.vehicle = vehicle;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 }
