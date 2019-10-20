@@ -228,7 +228,7 @@ public class ParkingPlaceFragment extends Fragment implements View.OnClickListen
     }
 
     private void apiCall() {
-        progressDialog.showDialog("Getting neraby parking places...", getContext());
+        progressDialog.showDialog("Getting nearby parking places...", getContext());
         NearbyParkingRequest parkingRequest = new NearbyParkingRequest();
         parkingRequest.setLatitude(sharedPrefs.getLatitude());
         parkingRequest.setLongitude(sharedPrefs.getLongitude());

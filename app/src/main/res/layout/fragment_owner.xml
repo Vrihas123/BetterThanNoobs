@@ -1,8 +1,301 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.in.out.hackathon.inoutapp.fragments.OwnerFragment">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/tv_heading_booking_space"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8"
+            android:layout_marginStart="@dimen/margin_8"
+            android:text="Create a Booking space"
+            style="@style/TextViewPageTitle"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_below="@+id/tv_heading_booking_space"
+            android:layout_marginTop="8dp">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Booking Space Name"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_booking_space_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/avenir_medium"
+                    android:textSize="14sp"
+                    android:textColor="@color/colorBlackLow"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add Location"
+                android:fontFamily="@font/avenir_medium"
+                android:layout_marginStart="8dp"
+                android:textSize="16sp"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/colorBlackLow"
+                android:layout_marginBottom="4dp"/>
+
+            <fragment
+                android:id="@+id/autocomplete_fragment_booking_space"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Timings"
+                android:textSize="18sp"
+                android:fontFamily="@font/avenir_medium"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/colorBlackLow"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="4dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="From :"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/avenir_medium"
+                        android:textColor="@color/colorBlackLow"/>
+
+
+                    <LinearLayout
+                        android:id="@+id/ll_from_time_book"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/spinner_bg"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="32dp">
+
+                        <TextView
+                            android:id="@+id/txt_from_time_book"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:textSize="14sp"
+                            android:fontFamily="sans-serif"
+                            android:textColor="@color/colorBlack"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:layout_gravity="center_vertical"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="To :"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/avenir_medium"
+                        android:textColor="@color/colorBlackLow"/>
+
+
+                    <LinearLayout
+                        android:id="@+id/ll_to_time_book"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/spinner_bg"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="32dp"
+                        android:weightSum="3">
+
+                        <TextView
+                            android:id="@+id/txt_to_time_book"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:textSize="14sp"
+                            android:fontFamily="sans-serif"
+                            android:layout_weight="2.7"
+                            android:textColor="@color/colorBlack"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="No. of 4-Wheelers that can be accommodated"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_quantity_4_wheeler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/avenir_medium"
+                    android:textSize="14sp"
+                    android:inputType="number"
+                    android:textColor="@color/colorBlackLow"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Charge for one 4-wheeler"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_price_4_wheeler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/avenir_medium"
+                    android:textSize="14sp"
+                    android:inputType="number"
+                    android:textColor="@color/colorBlackLow"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="No. of 2-Wheelers that can be accommodated"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_quantity_2_wheeler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/avenir_medium"
+                    android:textSize="14sp"
+                    android:inputType="number"
+                    android:textColor="@color/colorBlackLow"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Charge for one 2-wheeler"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_price_2_wheeler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/avenir_medium"
+                    android:textSize="14sp"
+                    android:inputType="number"
+                    android:textColor="@color/colorBlackLow"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <Button
+                android:id="@+id/btn_pic"
+                android:layout_width="150dp"
+                android:layout_height="30dp"
+                android:text="Upload a picture"
+                android:fontFamily="@font/avenir_medium"
+                android:textSize="12sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/button_rounded_corner_stroke1"/>
+
+            <ImageView
+                android:id="@+id/iv_pic"
+                android:layout_width="200dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center_horizontal"/>
+
+            <Button
+                android:id="@+id/btn_create_booking_space"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_rounded_corner1"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/avenir_black"
+                android:textColor="@color/colorWhite"
+                android:text="Create"
+                android:textSize="14sp"
+                android:layout_marginTop="@dimen/margin_16"/>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</ScrollView>
