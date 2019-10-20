@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.in.out.hackathon.inoutapp.fragments.ParkingPlaceFragment">
+    android:background="@color/colorWhite">
 
     <fragment
         android:id="@+id/autocomplete_fragment"
@@ -27,7 +27,6 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/avenir_heavy"
             android:textSize="18sp"
-            android:text="MLR, Bangalore"
             android:textColor="@color/colorBlackLow"/>
 
         <TextView

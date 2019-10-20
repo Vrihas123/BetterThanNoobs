@@ -1,0 +1,236 @@
+<ScrollView android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_parking_space"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/parking"/>
+
+        <TextView
+            android:id="@+id/tv_parking_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_parking_space"
+            android:layout_marginTop="@dimen/margin_8"
+            android:layout_marginStart="@dimen/margin_16"
+            android:text="Pathuk Parking Centre"
+            style="@style/TextViewPageTitle"/>
+
+        <ImageView
+            android:id="@+id/iv_location"
+            android:layout_width="@dimen/margin_24"
+            android:layout_height="@dimen/margin_24"
+            android:src="@drawable/ic_place_black_24dp"
+            android:layout_below="@+id/tv_parking_name"
+            android:layout_marginStart="@dimen/margin_8"
+            android:layout_marginTop="@dimen/margin_16"/>
+
+        <TextView
+            android:id="@+id/tv_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/iv_location"
+            android:layout_below="@+id/tv_parking_name"
+            android:layout_marginTop="@dimen/margin_16"
+            android:layout_marginStart="@dimen/margin_8"
+            android:text="33-Parmananda Nagar"
+            style="@style/TextViewSecondaryFields"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_charges"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_location"
+            android:layout_marginTop="@dimen/margin_16"
+            android:layout_marginStart="@dimen/margin_16"
+            android:layout_marginEnd="@dimen/margin_16"
+            app:cardElevation="@dimen/margin_4"
+            app:cardCornerRadius="@dimen/margin_4">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/margin_8"
+                android:layout_marginRight="@dimen/margin_8"
+                android:layout_marginTop="@dimen/margin_8"
+                android:layout_marginBottom="@dimen/margin_8">
+
+                <TextView
+                    android:id="@+id/tv_charges_heading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextViewPrimary"
+                    android:text="Total Charges"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_charges_heading"
+                    style="@style/TextViewPrimaryRegular"
+                    android:text="\u20B9 4506"/>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_vehicles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cv_charges"
+            android:layout_marginTop="@dimen/margin_16"
+            android:layout_marginStart="@dimen/margin_16"
+            android:layout_marginEnd="@dimen/margin_16"
+            app:cardElevation="@dimen/margin_4"
+            app:cardCornerRadius="@dimen/margin_4">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/margin_8"
+                android:layout_marginRight="@dimen/margin_8"
+                android:layout_marginTop="@dimen/margin_8"
+                android:layout_marginBottom="@dimen/margin_8">
+
+                <TextView
+                    android:id="@+id/tv_vehicles"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextViewPrimary"
+                    android:text="Your Parks"/>
+
+                <ImageView
+                    android:id="@+id/iv_bike"
+                    android:layout_width="@dimen/margin_32"
+                    android:layout_height="@dimen/margin_32"
+                    android:layout_marginTop="@dimen/margin_4"
+                    android:src="@drawable/ic_directions_bike_black_24dp"
+                    android:layout_below="@+id/tv_vehicles"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_vehicles"
+                    android:layout_toRightOf="@+id/iv_bike"
+                    android:layout_marginStart="@dimen/margin_8"
+                    style="@style/TextViewPrimaryRegular"
+                    android:text="2"/>
+
+                <ImageView
+                    android:id="@+id/iv_car"
+                    android:layout_width="@dimen/margin_32"
+                    android:layout_height="@dimen/margin_32"
+                    android:layout_marginTop="@dimen/margin_4"
+                    android:src="@drawable/ic_directions_car_black_24dp"
+                    android:layout_centerInParent="true"
+                    android:layout_below="@+id/tv_vehicles"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_vehicles"
+                    android:layout_toRightOf="@+id/iv_car"
+                    android:layout_marginStart="@dimen/margin_8"
+                    style="@style/TextViewPrimaryRegular"
+                    android:text="2"/>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cv_vehicles"
+            android:layout_marginTop="@dimen/margin_16"
+            android:layout_marginStart="@dimen/margin_16"
+            android:layout_marginEnd="@dimen/margin_16"
+            app:cardElevation="@dimen/margin_4"
+            app:cardCornerRadius="@dimen/margin_4">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/margin_8"
+                android:layout_marginRight="@dimen/margin_8"
+                android:layout_marginTop="@dimen/margin_8"
+                android:layout_marginBottom="@dimen/margin_8">
+
+                <TextView
+                    android:id="@+id/tv_desc_heading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextViewPrimary"
+                    android:text="Description"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_desc_heading"
+                    style="@style/TextViewPrimaryRegular"
+                    android:textSize="@dimen/text_16"
+                    android:text="Right in the centre of the heart
+Very near to the City centre
+Right in the centre of the heart
+Very near to the City centre
+Right in the centre of the heart
+Very near to the City centre"/>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/btn_call"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="160dp"
+            android:background="@color/colorPrimaryDark"
+            android:layout_below="@+id/cv_description"
+            android:layout_marginStart="@dimen/margin_16"
+            android:layout_marginTop="@dimen/margin_16"
+            android:textColor="@color/colorWhite"
+            android:fontFamily="@font/avenir_black"
+            android:text="Call"/>
+
+        <Button
+            android:id="@+id/btn_directions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="160dp"
+            android:background="@color/colorPrimaryDark"
+            android:layout_below="@+id/cv_description"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="@dimen/margin_16"
+            android:layout_marginEnd="@dimen/margin_16"
+            android:layout_marginTop="@dimen/margin_16"
+            android:textColor="@color/colorWhite"
+            android:fontFamily="@font/avenir_black"
+            android:text="Get Directions"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:layout_below="@+id/btn_call"
+            android:layout_marginStart="@dimen/margin_16"
+            android:layout_marginEnd="@dimen/margin_16"
+            android:layout_marginTop="@dimen/margin_16"
+            android:layout_marginBottom="@dimen/margin_16"
+            android:fontFamily="@font/avenir_black"
+            android:textColor="@color/colorWhite"
+            android:text="Book"/>
+
+    </RelativeLayout>
+
+</ScrollView>

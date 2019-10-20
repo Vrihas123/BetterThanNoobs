@@ -28,6 +28,7 @@ import com.google.android.libraries.places.widget.listener.PlaceSelectionListene
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.gson.Gson;
 import com.in.out.hackathon.inoutapp.R;
+import com.in.out.hackathon.inoutapp.activities.MainActivity;
 import com.in.out.hackathon.inoutapp.models.NearbyParkingRequest;
 import com.in.out.hackathon.inoutapp.models.NearbyParkingResponse;
 import com.in.out.hackathon.inoutapp.restapi.ApiServices;
@@ -245,6 +246,8 @@ public class ParkingPlaceFragment extends Fragment implements View.OnClickListen
                     Log.i("res", " " + response.body().getParkingPlaceDataList().get(0));
 
                     sharedPrefs.setNearbyParking(gson.toJson(response.body(), NearbyParkingResponse.class));
+                    AvailableParkingFragment availableParkingFragment = AvailableParkingFragment.newInstance();
+                    ((MainActivity)getContext()).createFragment(availableParkingFragment, "Available Parking Fragment", true);
                 }
             }
 

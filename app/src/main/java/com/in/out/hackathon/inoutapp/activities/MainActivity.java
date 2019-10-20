@@ -19,7 +19,7 @@ import com.in.out.hackathon.inoutapp.fragments.ParkingPlaceFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private Toolbar toolbarHome;
+//    private Toolbar toolbarHome;
     private BottomNavigationView bottomNavigationView;
 
     private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -56,11 +56,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     private void initializeView() {
-        toolbarHome = findViewById(R.id.toolbar_home);
+//        toolbarHome = findViewById(R.id.toolbar_home);
         bottomNavigationView = findViewById(R.id.bottom_nav_home);
-        setSupportActionBar(toolbarHome);
-        getSupportActionBar().setTitle("ParkUp");
-        toolbarHome.setTitleTextColor(getResources().getColor(R.color.colorWhite));
+//        setSupportActionBar(toolbarHome);
+//        getSupportActionBar().setTitle("ParkUp");
+//        toolbarHome.setTitleTextColor(getResources().getColor(R.color.colorWhite));
     }
 
 

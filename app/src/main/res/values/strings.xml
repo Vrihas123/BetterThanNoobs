@@ -1,8 +1,4 @@
 <resources>
     <string name="app_name">InOutApp</string>
-
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
     <string name="api_key">AIzaSyB6S9DVpaPklNtCADXGAOJO176VwTZr7vE</string>
-
 </resources>

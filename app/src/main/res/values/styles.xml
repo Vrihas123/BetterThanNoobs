@@ -23,4 +23,58 @@
         <item name="android:windowExitAnimation">@anim/slide_out_to_left</item>
     </style>
 
+    <!-- TextViews -->
+    <style name="TextViewPageTitle">
+        <item name="fontFamily">@font/avenir_heavy</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">@dimen/text_26</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <style name="TextViewPrimary">
+        <item name="fontFamily">@font/avenir_heavy</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/text_24</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <style name="TextViewPrimaryRegular">
+        <item name="fontFamily">@font/avenir_next_regular</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/text_24</item>
+    </style>
+
+    <style name="TextViewSecondary">
+        <item name="fontFamily">@font/avenir_heavy</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/text_16</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <style name="TextViewSecondaryFields">
+        <item name="fontFamily">@font/avenir_next_regular</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/text_16</item>
+    </style>
+
+    <style name="TextViewTertiary">
+        <item name="fontFamily">@font/avenir_next_regular</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/text_14</item>
+    </style>
+
+    <style name="TextViewCountryCode">
+        <item name="fontFamily">@font/avenir_heavy</item>
+        <item name="android:textColor">@color/colorDarkGray2</item>
+        <item name="android:textSize">@dimen/text_20</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <style name="TextViewGeneral">
+        <item name="fontFamily">@font/avenir_medium</item>
+        <item name="android:textColor">@color/colorDarkGray2</item>
+        <item name="android:textSize">@dimen/text_14</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
 </resources>
